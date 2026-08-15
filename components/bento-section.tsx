@@ -1,13 +1,15 @@
-import AiCodeReviews from "./bento/ai-code-reviews"
-import RealtimeCodingPreviews from "./bento/real-time-previews"
-import OneClickIntegrationsIllustration from "./bento/one-click-integrations-illustration"
-import MCPConnectivityIllustration from "./bento/mcp-connectivity-illustration" // Updated import
-import EasyDeployment from "./bento/easy-deployment"
-import ParallelCodingAgents from "./bento/parallel-agents" // Updated import
+import type { LucideIcon } from "lucide-react"
+import {
+  Globe,
+  Route,
+  Warehouse,
+  ShieldCheck,
+  Container,
+  Radar,
+} from "lucide-react"
 
-const BentoCard = ({ title, description, Component }) => (
-  <div className="overflow-hidden rounded-2xl border border-white/20 flex flex-col justify-start items-start relative">
-    {/* Background with blur effect */}
+const BentoCard = ({ icon: Icon, title, description }: { icon: LucideIcon; title: string; description: string }) => (
+  <div className="overflow-hidden rounded-2xl border border-white/20 flex flex-col justify-start items-start relative min-h-[220px]">
     <div
       className="absolute inset-0 rounded-2xl"
       style={{
@@ -16,19 +18,16 @@ const BentoCard = ({ title, description, Component }) => (
         WebkitBackdropFilter: "blur(4px)",
       }}
     />
-    {/* Additional subtle gradient overlay */}
     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl" />
 
-    <div className="self-stretch p-6 flex flex-col justify-start items-start gap-2 relative z-10">
-      <div className="self-stretch flex flex-col justify-start items-start gap-1.5">
-        <p className="self-stretch text-foreground text-lg font-normal leading-7">
-          {title} <br />
-          <span className="text-muted-foreground">{description}</span>
-        </p>
+    <div className="self-stretch p-6 flex flex-col justify-start items-start gap-4 relative z-10">
+      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+        <Icon className="w-6 h-6 text-primary" />
       </div>
-    </div>
-    <div className="self-stretch h-72 relative -mt-0.5 z-10">
-      <Component />
+      <div className="self-stretch flex flex-col justify-start items-start gap-1.5">
+        <p className="self-stretch text-foreground text-lg font-semibold leading-7">{title}</p>
+        <p className="text-muted-foreground text-sm leading-6">{description}</p>
+      </div>
     </div>
   </div>
 )
@@ -36,49 +35,49 @@ const BentoCard = ({ title, description, Component }) => (
 export function BentoSection() {
   const cards = [
     {
-      title: "AI-powered code reviews.",
-      description: "Get real-time, smart suggestions for cleaner code.",
-      Component: AiCodeReviews,
+      icon: Globe,
+      title: "Global Freight Network",
+      description: "Ship to over 190 countries with our extensive network of ocean, air, and road freight partners.",
     },
     {
-      title: "Real-time coding previews",
-      description: "Chat, collaborate, and instantly preview changes together.",
-      Component: RealtimeCodingPreviews,
+      icon: Radar,
+      title: "Real-time GPS Tracking",
+      description: "Live location tracking on every shipment with hourly status updates and geofencing alerts.",
     },
     {
-      title: "One-click integrations",
-      description: "Easily connect your workflow with popular dev tools.",
-      Component: OneClickIntegrationsIllustration,
+      icon: Route,
+      title: "Route Optimization",
+      description: "AI-powered routing that cuts delivery times by up to 30% while minimizing fuel costs.",
     },
     {
-      title: "Flexible MCP connectivity",
-      description: "Effortlessly manage and configure MCP server access.",
-      Component: MCPConnectivityIllustration, // Updated component
+      icon: Warehouse,
+      title: "Smart Warehousing",
+      description: "Strategic warehouse locations with automated inventory management and same-day fulfillment.",
     },
     {
-      title: "Launch parallel coding agents", // Swapped position
-      description: "Solve complex problems faster with multiple AI agents.",
-      Component: ParallelCodingAgents, // Updated component
+      icon: ShieldCheck,
+      title: "Cargo Insurance",
+      description: "Comprehensive protection for your goods from pickup to final delivery, bundled with every shipment.",
     },
     {
-      title: "Deployment made easy", // Swapped position
-      description: "Go from code to live deployment on Vercel instantly.",
-      Component: EasyDeployment,
+      icon: Container,
+      title: "Container Tracking",
+      description: "Monitor containers, temperature, and humidity in real-time across ocean freight journeys.",
     },
   ]
 
   return (
-    <section className="w-full px-5 flex flex-col justify-center items-center overflow-visible bg-transparent">
+    <section id="features-section" className="w-full px-5 flex flex-col justify-center items-center overflow-visible bg-transparent">
       <div className="w-full py-8 md:py-16 relative flex flex-col justify-start items-start gap-6">
         <div className="w-[547px] h-[938px] absolute top-[614px] left-[80px] origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[130px] z-0" />
         <div className="self-stretch py-8 md:py-14 flex flex-col justify-center items-center gap-2 z-10">
           <div className="flex flex-col justify-start items-center gap-4">
             <h2 className="w-full max-w-[655px] text-center text-foreground text-4xl md:text-6xl font-semibold leading-tight md:leading-[66px]">
-              Empower Your Workflow with AI
+              Logistics, Powered by Technology
             </h2>
             <p className="w-full max-w-[600px] text-center text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
-              Ask your AI Agent for real-time collaboration, seamless integrations, and actionable insights to
-              streamline your operations.
+              From warehousing to last-mile delivery, our platform gives you complete visibility and control over your
+              entire supply chain.
             </p>
           </div>
         </div>

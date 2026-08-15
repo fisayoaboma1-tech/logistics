@@ -6,34 +6,34 @@ import { ChevronDown } from "lucide-react"
 
 const faqData = [
   {
-    question: "What is Pointer and who is it for?",
+    question: "What is LogiTrack and who is it for?",
     answer:
-      "Pointer is an AI-powered development platform designed for developers, teams, and organizations who want toaccelerate their coding workflow. It's perfect for both individual developers looking to enhance their productivity and teams seeking seamless collaboration tools.",
+      "LogiTrack is a comprehensive shipment logistics platform designed for businesses, logistics teams, and organizations who handle freight, cargo, and parcel delivery. It's perfect for both small businesses shipping occasionally and large enterprises managing complex global supply chains.",
   },
   {
-    question: "How does Pointer's AI code review work?",
+    question: "How does real-time shipment tracking work?",
     answer:
-      "Our AI analyzes your code in real-time, providing intelligent suggestions for improvements, catching potential bugs, and ensuring best practices. It learns from your coding patterns and adapts to your team's standards, making code reviews faster and more consistent.",
+      "Every shipment is equipped with GPS-enabled tracking that provides live location updates throughout the journey. Our platform aggregates data from carriers, ports, and ground vehicles to give you a single source of truth with updates every 30 minutes or less.",
   },
   {
-    question: "Can I integrate Pointer with my existing tools?",
+    question: "Can I track multiple carriers in one place?",
     answer:
-      "Yes! Pointer offers one-click integrations with popular development tools including GitHub, GitLab, VS Code, Slack, and many more. Our MCP connectivity allows you to easily manage and configure server access across your entire development stack.",
+      "Yes! LogiTrack integrates with 40+ major carriers including ocean liners, air freight operators, and local courier services. You can track all your shipments from different carriers in a single unified dashboard, eliminating the need to switch between carrier portals.",
   },
   {
-    question: "What's included in the free plan?",
+    question: "What's included in the Starter plan?",
     answer:
-      "The free plan includes real-time code suggestions, basic integrations, single MCP server connection, up to 2 AI coding agents, and Vercel deployments with Pointer branding. It's perfect for individual developers getting started.",
+      "The Starter plan includes up to 100 shipments per month, standard 3-7 day delivery tracking, basic email notifications, web dashboard access, and email support. It's perfect for small businesses that ship occasionally and need reliable visibility.",
   },
   {
-    question: "How do parallel coding agents work?",
+    question: "Do you handle customs brokerage?",
     answer:
-      "Our parallel coding agents can work on different parts of your codebase simultaneously, solving complex problems faster than traditional single-threaded approaches. You can launch multiple agents to handle different tasks like bug fixes, feature development, and code optimization concurrently.",
+      "Absolutely. Our Business and Enterprise plans include full customs brokerage services. Our team handles documentation, duties, and compliance for international shipments in over 190 countries, with real-time updates on customs clearance status through your dashboard.",
   },
   {
-    question: "Is my code secure with Pointer?",
+    question: "Is my cargo insured during transit?",
     answer:
-      "Absolutely. We use enterprise-grade security measures including end-to-end encryption, secure data transmission, and compliance with industry standards. Your code never leaves your secure environment without your explicit permission, and we offer on-premises deployment options for enterprise customers.",
+      "Every shipment automatically includes base cargo insurance. Business plans include coverage up to $50,000 and Enterprise plans up to $1,000,000 per shipment. Additional coverage can be purchased for high-value cargo with immediate binding.",
   },
 ]
 
@@ -91,7 +91,7 @@ export function FAQSection() {
     setOpenItems(newOpenItems)
   }
   return (
-    <section className="w-full pt-[66px] pb-20 md:pb-40 px-5 relative flex flex-col justify-center items-center">
+    <section id="faq-section" className="w-full pt-[66px] pb-20 md:pb-40 px-5 relative flex flex-col justify-center items-center">
       <div className="w-[300px] h-[500px] absolute top-[150px] left-1/2 -translate-x-1/2 origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[100px] z-0" />
       <div className="self-stretch pt-8 pb-8 md:pt-14 md:pb-14 flex flex-col justify-center items-center gap-2 relative z-10">
         <div className="flex flex-col justify-start items-center gap-4">
@@ -99,7 +99,7 @@ export function FAQSection() {
             Frequently Asked Questions
           </h2>
           <p className="self-stretch text-center text-muted-foreground text-sm font-medium leading-[18.20px] break-words">
-            Everything you need to know about Pointer and how it can transform your development workflow
+            Everything you need to know about LogiTrack and how it can transform your supply chain
           </p>
         </div>
       </div>

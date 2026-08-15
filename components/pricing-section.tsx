@@ -9,34 +9,34 @@ export function PricingSection() {
 
   const pricingPlans = [
     {
-      name: "Free",
-      monthlyPrice: "$0",
-      annualPrice: "$0",
-      description: "Perfect for individuals starting their journey.",
+      name: "Starter",
+      monthlyPrice: "$49",
+      annualPrice: "$39",
+      description: "For small businesses shipping occasionally.",
       features: [
-        "Real-time code suggestions",
-        "Basic integration logos",
-        "Single MCP server connection",
-        "Up to 2 AI coding agents",
-        "Vercel deployments with Pointer branding",
+        "Up to 100 shipments / month",
+        "Standard 3-7 day delivery",
+        "Basic tracking notifications",
+        "Email support",
+        "Web dashboard access",
       ],
       buttonText: "Get Started",
       buttonClass:
         "bg-zinc-300 shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] outline outline-0.5 outline-[#1e29391f] outline-offset-[-0.5px] text-gray-800 text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-zinc-400",
     },
     {
-      name: "Pro",
-      monthlyPrice: "$20",
-      annualPrice: "$16",
-      description: "Ideal for professionals.",
+      name: "Business",
+      monthlyPrice: "$199",
+      annualPrice: "$159",
+      description: "Perfect for growing companies with regular freight.",
       features: [
-        "Enhanced real-time previews",
-        "Unlimited integrations with custom logos",
-        "Multiple MCP server connections",
-        "Up to 10 concurrent AI coding agents",
-        "Collaborative coding with team chat",
-        "Advanced version control integrations",
-        "Priority email and chat support",
+        "Up to 1,000 shipments / month",
+        "Express 1-2 day delivery",
+        "Real-time GPS tracking",
+        "Customs brokerage included",
+        "Priority phone & email support",
+        "Cargo insurance up to $50K",
+        "API access & integrations",
       ],
       buttonText: "Join now",
       buttonClass:
@@ -44,16 +44,18 @@ export function PricingSection() {
       popular: true,
     },
     {
-      name: "Ultra",
-      monthlyPrice: "$200",
-      annualPrice: "$160",
-      description: "Tailored solutions for teams.",
+      name: "Enterprise",
+      monthlyPrice: "$999",
+      annualPrice: "$799",
+      description: "Custom solutions for large supply chains.",
       features: [
-        "Dedicated account support",
-        "Unlimited MCP server clusters",
-        "Unlimited AI coding agents",
-        "Enterprise-grade security and compliance",
-        "Priority deployments and SLA guarantees",
+        "Unlimited shipments",
+        "Dedicated account manager",
+        "Custom route planning",
+        "Temperature-controlled freight",
+        "Full cargo insurance up to $1M",
+        "SLA guarantees & priority dispatch",
+        "Dedicated API & integration support",
       ],
       buttonText: "Talk to Sales",
       buttonClass:
@@ -62,15 +64,15 @@ export function PricingSection() {
   ]
 
   return (
-    <section className="w-full px-5 overflow-hidden flex flex-col justify-start items-center my-0 py-8 md:py-14">
+    <section id="pricing-section" className="w-full px-5 overflow-hidden flex flex-col justify-start items-center my-0 py-8 md:py-14">
       <div className="self-stretch relative flex flex-col justify-center items-center gap-2 py-0">
         <div className="flex flex-col justify-start items-center gap-4">
           <h2 className="text-center text-foreground text-4xl md:text-5xl font-semibold leading-tight md:leading-[40px]">
-            Pricing built for every developer
+            Shipping rates for every business
           </h2>
           <p className="self-stretch text-center text-muted-foreground text-sm font-medium leading-tight">
-            Choose a plan that fits your coding workflow, from individuals starting out to <br /> growing professionals
-            and large organizations.
+            Choose a plan that fits your shipping volume, from occasional parcels to <br /> high-volume enterprise
+            freight.
           </p>
         </div>
         <div className="pt-4">
@@ -82,7 +84,7 @@ export function PricingSection() {
               <span
                 className={`text-center text-sm font-medium leading-tight ${isAnnual ? "text-accent-foreground" : "text-zinc-400"}`}
               >
-                Annually
+                Annual
               </span>
             </button>
             <button
@@ -166,7 +168,7 @@ export function PricingSection() {
               >
                 <div className="px-1.5 flex justify-center items-center gap-2">
                   <span
-                    className={`text-center text-sm font-medium leading-tight ${plan.name === "Free" ? "text-gray-800" : plan.name === "Pro" ? "text-primary" : "text-zinc-950"}`}
+                    className={`text-center text-sm font-medium leading-tight ${plan.name === "Starter" ? "text-gray-800" : plan.name === "Business" ? "text-primary" : "text-zinc-950"}`}
                   >
                     {plan.buttonText}
                   </span>
@@ -177,7 +179,7 @@ export function PricingSection() {
               <div
                 className={`self-stretch text-sm font-medium leading-tight ${plan.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}
               >
-                {plan.name === "Free" ? "Get Started today:" : "Everything in Free +"}
+                {plan.name === "Starter" ? "Get started today:" : "Everything in the tier below +"}
               </div>
               <div className="self-stretch flex flex-col justify-start items-start gap-3">
                 {plan.features.map((feature) => (
