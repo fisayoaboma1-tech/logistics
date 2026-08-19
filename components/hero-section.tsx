@@ -1,6 +1,5 @@
 import React from "react"
 import { Button } from "@/components/ui/button"
-import { Header } from "./header"
 import Link from "next/link"
 import { Package } from "lucide-react"
 
@@ -26,11 +25,6 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background))_100%)] opacity-60" />
         {/* Subtle premium ring */}
         <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl" />
-      </div>
-
-      {/* Header positioned at top of hero container */}
-      <div className="absolute top-0 left-0 right-0 z-[2147483647]">
-        <Header />
       </div>
 
       <div className="relative z-10 space-y-5 md:space-y-6 lg:space-y-7 mb-6 md:mb-7 lg:mb-9 max-w-md md:max-w-[500px] lg:max-w-[588px] mt-16 md:mt-[120px] lg:mt-[160px] px-4">

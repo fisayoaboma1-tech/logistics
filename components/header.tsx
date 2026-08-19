@@ -24,7 +24,10 @@ export function Header() {
   }
 
   return (
-    <header className="w-full py-4 px-6">
+    <header
+      className="w-full py-4 px-6 fixed top-0 left-0 right-0 z-[2147483647]"
+      style={{ zIndex: 2147483647 }}
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-8">
           <div className="flex items-center gap-2.5">
@@ -53,11 +56,11 @@ export function Header() {
             </Button>
           </Link>
           <Sheet>
-            <SheetTrigger asChild className="md:hidden">
+            <SheetTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
-                className="fixed top-4 right-6 z-[9999] mt-5 bg-black text-white hover:bg-black hover:text-white"
+                className="bg-black text-white hover:bg-black hover:text-white z-[2147483647]"
                 style={{ zIndex: 2147483647 }}
               >
                 <Menu className="h-6 w-6" />
@@ -66,7 +69,7 @@ export function Header() {
             </SheetTrigger>
             <SheetContent
               side="bottom"
-              className="z-[9999] bg-background border-t border-border text-foreground"
+              className="z-[2147483647] bg-background border-t border-border text-foreground"
               style={{ zIndex: 2147483647 }}
             >
               <SheetHeader>
