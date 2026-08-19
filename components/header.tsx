@@ -57,13 +57,13 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="fixed top-4 right-6 z-50 mt-5 bg-black text-white hover:bg-black hover:text-white"
+                className="fixed top-4 right-6 z-[9999] mt-5 bg-black text-white hover:bg-black hover:text-white"
               >
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="bottom" className="bg-background border-t border-border text-foreground">
+            <SheetContent side="bottom" className="z-[9999] bg-background border-t border-border text-foreground">
               <SheetHeader>
                 <SheetTitle className="text-left text-xl font-semibold text-foreground tracking-tight">
                   Navigation
