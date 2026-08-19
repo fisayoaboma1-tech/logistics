@@ -58,12 +58,17 @@ export function Header() {
                 variant="ghost"
                 size="icon"
                 className="fixed top-4 right-6 z-[9999] mt-5 bg-black text-white hover:bg-black hover:text-white"
+                style={{ zIndex: 2147483647 }}
               >
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="bottom" className="z-[9999] bg-background border-t border-border text-foreground">
+            <SheetContent
+              side="bottom"
+              className="z-[9999] bg-background border-t border-border text-foreground"
+              style={{ zIndex: 2147483647 }}
+            >
               <SheetHeader>
                 <SheetTitle className="text-left text-xl font-semibold text-foreground tracking-tight">
                   Navigation
