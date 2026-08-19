@@ -209,7 +209,6 @@ export function TrackingSection() {
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch {
-      // Fallback for unsupported clipboard
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     }
@@ -225,7 +224,7 @@ export function TrackingSection() {
     <section id="track-section" className="w-full px-5 py-8 md:py-14 flex flex-col justify-center items-center">
       <div className="w-full max-w-[1100px]">
         <div className="flex flex-col justify-center items-center gap-4 mb-8 text-center">
-          <h2 className="text-foreground text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight">
+          <h2 className="text-foreground text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight heading-tight">
             Track Your Shipment
           </h2>
           <p className="text-muted-foreground text-sm md:text-base font-medium leading-relaxed max-w-2xl">
@@ -242,12 +241,13 @@ export function TrackingSection() {
               onChange={(e) => setTrackingInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Enter tracking number (e.g. LT-2024-001)"
-              className="pl-12 py-6 rounded-xl bg-[rgba(231,236,235,0.08)] border-border text-foreground placeholder:text-muted-foreground/50"
+              className="pl-12 py-6 rounded-xl glass placeholder:text-foreground/40 focus-visible:ring-primary/30"
             />
           </div>
           <Button
             onClick={handleTrack}
-            className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-6 rounded-xl font-medium"
+            variant="secondary"
+            className="px-8 py-6 rounded-xl"
           >
             Track
           </Button>
@@ -265,7 +265,7 @@ export function TrackingSection() {
                 setShipment(shipments[code])
                 setError(null)
               }}
-              className="px-3 py-1.5 rounded-full text-xs font-medium bg-[rgba(231,236,235,0.08)] border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
+              className="px-3 py-1.5 rounded-full text-xs font-medium glass text-muted-foreground hover:text-foreground hover:border-primary/40 transition-all duration-200"
             >
               {code}
             </button>
@@ -276,18 +276,18 @@ export function TrackingSection() {
         {shipment && (
           <div className="mt-10 w-full">
             {/* Header Card */}
-            <div className="rounded-2xl border border-border bg-[rgba(231,236,235,0.08)] backdrop-blur-sm overflow-hidden">
+            <div className="rounded-2xl glass-strong overflow-hidden card-hover">
               <div className="p-6 md:p-8">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-6">
                   <div>
                     <div className="flex items-center gap-3">
-                      <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10">
+                      <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 ring-1 ring-primary/20">
                         <PackageCheck className="w-5 h-5 text-primary" />
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">Tracking Number</p>
                         <div className="flex items-center gap-2">
-                          <p className="text-foreground text-lg font-semibold">{shipment.trackingNumber}</p>
+                          <p className="text-foreground text-lg font-semibold tracking-tight">{shipment.trackingNumber}</p>
                           <button
                             onClick={handleCopy}
                             className="p-1 text-muted-foreground hover:text-foreground transition-colors"
@@ -306,10 +306,10 @@ export function TrackingSection() {
                   <div
                     className={`px-4 py-2 rounded-full text-sm font-semibold ${
                       shipment.status === "delivered"
-                        ? "bg-primary/10 text-primary"
+                        ? "bg-primary/10 text-primary ring-1 ring-primary/20"
                         : shipment.status === "out-for-delivery"
-                          ? "bg-[rgba(78,255,182,0.1)] text-primary-dark"
-                          : "bg-primary/10 text-primary"
+                          ? "bg-[rgba(78,255,182,0.1)] text-primary-dark ring-1 ring-primary/20"
+                          : "bg-primary/10 text-primary ring-1 ring-primary/20"
                     }`}
                   >
                     {shipment.statusLabel}
@@ -320,7 +320,7 @@ export function TrackingSection() {
                 <div className="mt-6">
                   <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-primary transition-all duration-700 ease-out"
+                      className="h-full rounded-full bg-gradient-to-r from-primary/70 to-primary transition-all duration-700 ease-out"
                       style={{ width: `${shipment.progress}%` }}
                     />
                   </div>
@@ -362,8 +362,8 @@ export function TrackingSection() {
             </div>
 
             {/* Timeline */}
-            <div className="mt-6 rounded-2xl border border-border bg-[rgba(231,236,235,0.08)] backdrop-blur-sm p-6 md:p-8">
-              <h3 className="text-foreground font-semibold text-lg mb-6">Shipment Timeline</h3>
+            <div className="mt-6 rounded-2xl glass-strong p-6 md:p-8 card-hover">
+              <h3 className="text-foreground font-semibold text-lg mb-6 tracking-tight">Shipment Timeline</h3>
               <div className="relative">
                 {/* Timeline line */}
                 <div className="absolute left-[19px] top-2 bottom-2 w-px bg-border" />

@@ -93,7 +93,7 @@ export function ShipmentTracker() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
               <Input
                 placeholder="Enter tracking number (e.g., LGT-2024-001)"
-                className="pl-12 h-12 text-base bg-background/50 border-white/10 text-foreground placeholder:text-muted-foreground"
+                className="pl-12 h-12 text-base bg-background/50 border-white/10 text-foreground placeholder:text-foreground/50"
                 value={trackingNumber}
                 onChange={(e) => setTrackingNumber(e.target.value)}
                 onKeyPress={(e) => e.key === "Enter" && handleSearch()}
@@ -101,7 +101,9 @@ export function ShipmentTracker() {
             </div>
             <Button
               onClick={handleSearch}
-              className="h-12 px-8 bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg font-semibold"
+              variant="default"
+              size="lg"
+              className="rounded-lg"
             >
               Track
             </Button>

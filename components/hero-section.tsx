@@ -33,16 +33,16 @@ export function HeroSection() {
         <Header />
       </div>
 
-      <div className="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-6 md:mb-7 lg:mb-9 max-w-md md:max-w-[500px] lg:max-w-[588px] mt-16 md:mt-[120px] lg:mt-[160px] px-4">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-border backdrop-blur-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+      <div className="relative z-10 space-y-5 md:space-y-6 lg:space-y-7 mb-6 md:mb-7 lg:mb-9 max-w-md md:max-w-[500px] lg:max-w-[588px] mt-16 md:mt-[120px] lg:mt-[160px] px-4">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass inner-highlight">
           <Package className="w-4 h-4 text-primary" />
-          <span className="text-xs md:text-sm font-medium text-muted-foreground">
+          <span className="text-xs md:text-sm font-medium text-muted-foreground tracking-tight">
             Real-time tracking for global shipments
           </span>
         </div>
-        <h1 className="text-foreground text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight">
+        <h1 className="text-foreground text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight heading-tighter">
           Ship Smarter.{" "}
-          <span className="bg-gradient-to-r from-primary via-primary-light to-primary bg-clip-text text-transparent">
+          <span className="text-gradient-primary">
             Deliver Faster.
           </span>
         </h1>
@@ -53,7 +53,7 @@ export function HeroSection() {
       </div>
 
       <Link href="#track-section" className="relative z-10 group">
-        <Button className="relative bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-full font-medium text-base shadow-[0_8px_30px_rgb(0,0,0,0.12)] ring-1 ring-white/10 transition-all duration-300 group-hover:shadow-[0_8px_40px_rgba(255,255,255,0.15)] group-hover:scale-[1.02]">
+        <Button variant="secondary" size="lg" className="px-8 ring-1 ring-white/10 group-hover:shadow-[0_8px_40px_rgba(255,255,255,0.15)]">
           Track Your Shipment
         </Button>
       </Link>

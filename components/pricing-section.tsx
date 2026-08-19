@@ -1,18 +1,19 @@
 "use client"
 
 import { useState } from "react"
-import { Check } from "lucide-react"
+import { Check, Ship, Truck, Plane, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(true)
 
-  const pricingPlans = [
+  const shippingPlans = [
     {
-      name: "Starter",
+      name: "Standard Freight",
       monthlyPrice: "$49",
       annualPrice: "$39",
-      description: "For small businesses shipping occasionally.",
+      description: "Reliable ground shipping for everyday cargo needs.",
+      icon: Truck,
       features: [
         "Up to 100 shipments / month",
         "Standard 3-7 day delivery",
@@ -20,15 +21,16 @@ export function PricingSection() {
         "Email support",
         "Web dashboard access",
       ],
-      buttonText: "Get Started",
+      buttonText: "Start Shipping",
       buttonClass:
-        "bg-zinc-300 shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] outline outline-0.5 outline-[#1e29391f] outline-offset-[-0.5px] text-gray-800 text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-zinc-400",
+        "bg-gradient-to-b from-primary/20 to-primary/10 text-foreground ring-1 ring-primary/30 shadow-[0_2px_12px_-2px_rgba(0,255,182,0.3)] hover:from-primary/30 hover:to-primary/15 hover:shadow-[0_4px_20px_-2px_rgba(0,255,182,0.4)] hover:scale-[1.02]",
     },
     {
-      name: "Business",
+      name: "Express Air",
       monthlyPrice: "$199",
       annualPrice: "$159",
-      description: "Perfect for growing companies with regular freight.",
+      description: "Priority air freight for time-sensitive deliveries.",
+      icon: Plane,
       features: [
         "Up to 1,000 shipments / month",
         "Express 1-2 day delivery",
@@ -38,16 +40,17 @@ export function PricingSection() {
         "Cargo insurance up to $50K",
         "API access & integrations",
       ],
-      buttonText: "Join now",
+      buttonText: "Get Express",
       buttonClass:
-        "bg-primary-foreground shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] text-primary text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-primary-foreground/90",
+        "bg-gradient-to-b from-primary to-primary-dark text-primary-foreground ring-1 ring-primary/30 shadow-[0_2px_12px_-2px_rgba(0,255,182,0.5)] hover:from-primary-dark hover:to-primary hover:shadow-[0_4px_20px_-2px_rgba(0,255,182,0.6)] hover:scale-[1.02]",
       popular: true,
     },
     {
-      name: "Enterprise",
+      name: "Ocean & Enterprise",
       monthlyPrice: "$999",
       annualPrice: "$799",
-      description: "Custom solutions for large supply chains.",
+      description: "Full-scale ocean freight and enterprise supply chain.",
+      icon: Ship,
       features: [
         "Unlimited shipments",
         "Dedicated account manager",
@@ -59,7 +62,7 @@ export function PricingSection() {
       ],
       buttonText: "Talk to Sales",
       buttonClass:
-        "bg-secondary shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] text-secondary-foreground text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-secondary/90",
+        "bg-gradient-to-b from-primary/20 to-primary/10 text-foreground ring-1 ring-primary/30 shadow-[0_2px_12px_-2px_rgba(0,255,182,0.3)] hover:from-primary/30 hover:to-primary/15 hover:shadow-[0_4px_20px_-2px_rgba(0,255,182,0.4)] hover:scale-[1.02]",
     },
   ]
 
@@ -67,19 +70,19 @@ export function PricingSection() {
     <section id="pricing-section" className="w-full px-5 overflow-hidden flex flex-col justify-start items-center my-0 py-8 md:py-14">
       <div className="self-stretch relative flex flex-col justify-center items-center gap-2 py-0">
         <div className="flex flex-col justify-start items-center gap-4">
-          <h2 className="text-center text-foreground text-4xl md:text-5xl font-semibold leading-tight md:leading-[40px]">
-            Shipping rates for every business
+          <h2 className="text-center text-foreground text-4xl md:text-5xl font-semibold leading-tight md:leading-[40px] heading-tight">
+            Shipping solutions for every cargo
           </h2>
           <p className="self-stretch text-center text-muted-foreground text-sm font-medium leading-tight">
-            Choose a plan that fits your shipping volume, from occasional parcels to <br /> high-volume enterprise
-            freight.
+            From ground freight to global air and ocean shipping, choose the service <br /> that matches your
+            logistics needs.
           </p>
         </div>
         <div className="pt-4">
-          <div className="p-0.5 bg-muted rounded-lg outline outline-1 outline-[#0307120a] outline-offset-[-1px] flex justify-start items-center gap-1 md:mt-0">
+          <div className="p-0.5 glass rounded-lg flex justify-start items-center gap-1 md:mt-0">
             <button
               onClick={() => setIsAnnual(true)}
-              className={`pl-2 pr-1 py-1 flex justify-start items-start gap-2 rounded-md ${isAnnual ? "bg-accent shadow-[0px_1px_1px_-0.5px_rgba(0,0,0,0.08)]" : ""}`}
+              className={`pl-2 pr-1 py-1 flex justify-start items-start gap-2 rounded-md transition-all duration-200 ${isAnnual ? "bg-accent shadow-[0px_1px_1px_-0.5px_rgba(0,0,0,0.08)]" : ""}`}
             >
               <span
                 className={`text-center text-sm font-medium leading-tight ${isAnnual ? "text-accent-foreground" : "text-zinc-400"}`}
@@ -89,7 +92,7 @@ export function PricingSection() {
             </button>
             <button
               onClick={() => setIsAnnual(false)}
-              className={`px-2 py-1 flex justify-start items-start rounded-md ${!isAnnual ? "bg-accent shadow-[0px_1px_1px_-0.5px_rgba(0,0,0,0.08)]" : ""}`}
+              className={`px-2 py-1 flex justify-start items-start rounded-md transition-all duration-200 ${!isAnnual ? "bg-accent shadow-[0px_1px_1px_-0.5px_rgba(0,0,0,0.08)]" : ""}`}
             >
               <span
                 className={`text-center text-sm font-medium leading-tight ${!isAnnual ? "text-accent-foreground" : "text-zinc-400"}`}
@@ -100,107 +103,124 @@ export function PricingSection() {
           </div>
         </div>
       </div>
-      <div className="self-stretch px-5 flex flex-col md:flex-row justify-start items-start gap-4 md:gap-6 mt-6 max-w-[1100px] mx-auto">
-        {pricingPlans.map((plan) => (
-          <div
-            key={plan.name}
-            className={`flex-1 p-4 overflow-hidden rounded-xl flex flex-col justify-start items-start gap-6 ${plan.popular ? "bg-primary shadow-[0px_4px_8px_-2px_rgba(0,0,0,0.10)]" : "bg-gradient-to-b from-gray-50/5 to-gray-50/0"}`}
-            style={plan.popular ? {} : { outline: "1px solid hsl(var(--border))", outlineOffset: "-1px" }}
-          >
-            <div className="self-stretch flex flex-col justify-start items-start gap-6">
-              <div className="self-stretch flex flex-col justify-start items-start gap-8">
-                <div
-                  className={`w-full h-5 text-sm font-medium leading-tight ${plan.popular ? "text-primary-foreground" : "text-zinc-200"}`}
-                >
-                  {plan.name}
-                  {plan.popular && (
-                    <div className="ml-2 px-2 overflow-hidden rounded-full justify-center items-center gap-2.5 inline-flex mt-0 py-0.5 bg-gradient-to-b from-primary-light/50 to-primary-light bg-white">
-                      <div className="text-center text-primary-foreground text-xs font-normal leading-tight break-words">
-                        Popular
+      <div className="self-stretch px-5 flex flex-col md:flex-row justify-start items-stretch gap-4 md:gap-6 mt-6 max-w-[1100px] mx-auto">
+        {shippingPlans.map((plan) => {
+          const Icon = plan.icon
+          return (
+            <div
+              key={plan.name}
+              className={`flex-1 p-6 overflow-hidden rounded-2xl flex flex-col justify-start items-start gap-6 transition-all duration-300 hover:-translate-y-1 card-hover ${
+                plan.popular
+                  ? "bg-gradient-to-b from-primary to-primary/90 shadow-[0_8px_30px_-6px_rgba(120,252,214,0.35)] ring-1 ring-primary/50"
+                  : "glass hover:from-white/[0.09] hover:to-white/[0.04]"
+              }`}
+              style={plan.popular ? {} : { outline: "1px solid hsl(var(--border))", outlineOffset: "-1px" }}
+            >
+              <div className="self-stretch flex flex-col justify-start items-start gap-6 flex-1">
+                <div className="self-stretch flex flex-col justify-start items-start gap-6">
+                  <div className="self-stretch flex justify-between items-center">
+                    <div
+                      className={`text-sm font-medium leading-tight ${plan.popular ? "text-primary-foreground" : "text-zinc-200"}`}
+                    >
+                      {plan.name}
+                      {plan.popular && (
+                        <div className="ml-2 px-2 overflow-hidden rounded-full justify-center items-center gap-2.5 inline-flex mt-0 py-0.5 bg-gradient-to-b from-primary-light/50 to-primary-light bg-white">
+                          <div className="text-center text-primary-foreground text-xs font-normal leading-tight break-words">
+                            Popular
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <div
+                      className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${
+                        plan.popular ? "bg-primary-foreground/15" : "bg-primary/10 ring-1 ring-primary/20"
+                      }`}
+                    >
+                      <Icon className={`w-5 h-5 ${plan.popular ? "text-primary-foreground" : "text-primary"}`} />
+                    </div>
+                  </div>
+                  <div className="self-stretch flex flex-col justify-start items-start gap-2">
+                    <div className="flex justify-start items-center gap-1.5">
+                      <div
+                        className={`relative h-10 flex items-center text-3xl font-semibold leading-10 ${plan.popular ? "text-primary-foreground" : "text-zinc-50"}`}
+                      >
+                        <span className="invisible">{isAnnual ? plan.annualPrice : plan.monthlyPrice}</span>
+                        <span
+                          className="absolute inset-0 flex items-center transition-all duration-500"
+                          style={{
+                            opacity: isAnnual ? 1 : 0,
+                            transform: `scale(${isAnnual ? 1 : 0.8})`,
+                            filter: `blur(${isAnnual ? 0 : 4}px)`,
+                          }}
+                          aria-hidden={!isAnnual}
+                        >
+                          {plan.annualPrice}
+                        </span>
+                        <span
+                          className="absolute inset-0 flex items-center transition-all duration-500"
+                          style={{
+                            opacity: !isAnnual ? 1 : 0,
+                            transform: `scale(${!isAnnual ? 1 : 0.8})`,
+                            filter: `blur(${!isAnnual ? 0 : 4}px)`,
+                          }}
+                          aria-hidden={isAnnual}
+                        >
+                          {plan.monthlyPrice}
+                        </span>
+                      </div>
+                      <div
+                        className={`text-center text-sm font-medium leading-tight ${plan.popular ? "text-primary-foreground/70" : "text-zinc-400"}`}
+                      >
+                        /month
                       </div>
                     </div>
-                  )}
-                </div>
-                <div className="self-stretch flex flex-col justify-start items-start gap-1">
-                  <div className="flex justify-start items-center gap-1.5">
                     <div
-                      className={`relative h-10 flex items-center text-3xl font-medium leading-10 ${plan.popular ? "text-primary-foreground" : "text-zinc-50"}`}
+                      className={`self-stretch text-sm font-medium leading-tight ${plan.popular ? "text-primary-foreground/70" : "text-zinc-400"}`}
                     >
-                      <span className="invisible">{isAnnual ? plan.annualPrice : plan.monthlyPrice}</span>
-                      <span
-                        className="absolute inset-0 flex items-center transition-all duration-500"
-                        style={{
-                          opacity: isAnnual ? 1 : 0,
-                          transform: `scale(${isAnnual ? 1 : 0.8})`,
-                          filter: `blur(${isAnnual ? 0 : 4}px)`,
-                        }}
-                        aria-hidden={!isAnnual}
-                      >
-                        {plan.annualPrice}
-                      </span>
-                      <span
-                        className="absolute inset-0 flex items-center transition-all duration-500"
-                        style={{
-                          opacity: !isAnnual ? 1 : 0,
-                          transform: `scale(${!isAnnual ? 1 : 0.8})`,
-                          filter: `blur(${!isAnnual ? 0 : 4}px)`,
-                        }}
-                        aria-hidden={isAnnual}
-                      >
-                        {plan.monthlyPrice}
-                      </span>
-                    </div>
-                    <div
-                      className={`text-center text-sm font-medium leading-tight ${plan.popular ? "text-primary-foreground/70" : "text-zinc-400"}`}
-                    >
-                      /month
+                      {plan.description}
                     </div>
                   </div>
-                  <div
-                    className={`self-stretch text-sm font-medium leading-tight ${plan.popular ? "text-primary-foreground/70" : "text-zinc-400"}`}
-                  >
-                    {plan.description}
-                  </div>
                 </div>
+                <Button
+                  className={`self-stretch px-5 py-2.5 rounded-[40px] flex justify-center items-center transition-all duration-300 ${plan.buttonClass}`}
+                >
+                  <div className="px-1.5 flex justify-center items-center gap-2">
+                    <span
+                      className={`text-center text-sm font-medium leading-tight ${plan.name === "Express Air" ? "text-primary-foreground" : "text-foreground"}`}
+                    >
+                      {plan.buttonText}
+                    </span>
+                    <ArrowRight className={`w-4 h-4 ${plan.name === "Express Air" ? "text-primary-foreground" : "text-foreground"}`} />
+                  </div>
+                </Button>
               </div>
-              <Button
-                className={`self-stretch px-5 py-2 rounded-[40px] flex justify-center items-center ${plan.buttonClass}`}
-              >
-                <div className="px-1.5 flex justify-center items-center gap-2">
-                  <span
-                    className={`text-center text-sm font-medium leading-tight ${plan.name === "Starter" ? "text-gray-800" : plan.name === "Business" ? "text-primary" : "text-zinc-950"}`}
-                  >
-                    {plan.buttonText}
-                  </span>
+              <div className="self-stretch flex flex-col justify-start items-start gap-4 pt-4 border-t border-white/10">
+                <div
+                  className={`self-stretch text-sm font-medium leading-tight ${plan.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}
+                >
+                  {plan.name === "Standard Freight" ? "What's included:" : "Everything in the tier below +"}
                 </div>
-              </Button>
-            </div>
-            <div className="self-stretch flex flex-col justify-start items-start gap-4">
-              <div
-                className={`self-stretch text-sm font-medium leading-tight ${plan.popular ? "text-primary-foreground/70" : "text-muted-foreground"}`}
-              >
-                {plan.name === "Starter" ? "Get started today:" : "Everything in the tier below +"}
-              </div>
-              <div className="self-stretch flex flex-col justify-start items-start gap-3">
-                {plan.features.map((feature) => (
-                  <div key={feature} className="self-stretch flex justify-start items-center gap-2">
-                    <div className="w-4 h-4 flex items-center justify-center">
-                      <Check
-                        className={`w-full h-full ${plan.popular ? "text-primary-foreground" : "text-muted-foreground"}`}
-                        strokeWidth={2}
-                      />
+                <div className="self-stretch flex flex-col justify-start items-start gap-3">
+                  {plan.features.map((feature) => (
+                    <div key={feature} className="self-stretch flex justify-start items-center gap-2.5">
+                      <div className="w-4 h-4 flex items-center justify-center shrink-0">
+                        <Check
+                          className={`w-full h-full ${plan.popular ? "text-primary-foreground" : "text-primary"}`}
+                          strokeWidth={2.5}
+                        />
+                      </div>
+                      <div
+                        className={`leading-tight font-normal text-sm text-left ${plan.popular ? "text-primary-foreground" : "text-muted-foreground"}`}
+                      >
+                        {feature}
+                      </div>
                     </div>
-                    <div
-                      className={`leading-tight font-normal text-sm text-left ${plan.popular ? "text-primary-foreground" : "text-muted-foreground"}`}
-                    >
-                      {feature}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </section>
   )

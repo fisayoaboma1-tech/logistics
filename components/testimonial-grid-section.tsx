@@ -65,13 +65,13 @@ interface Testimonial {
   type: string
 }
 
-const TestimonialCard = ({ quote, name, company, avatar, type }: Testimonial) => {
+const TestimonialCard = ({ quote, name, company, type }: Testimonial) => {
   const isLargeCard = type.startsWith("large")
   const avatarSize = isLargeCard ? 48 : 36
   const avatarBorderRadius = isLargeCard ? "rounded-[41px]" : "rounded-[30.75px]"
   const padding = isLargeCard ? "p-6" : "p-[30px]"
 
-  let cardClasses = `flex flex-col justify-between items-start overflow-hidden rounded-[10px] shadow-[0px_2px_4px_rgba(0,0,0,0.08)] relative ${padding}`
+  let cardClasses = `flex flex-col justify-between items-start overflow-hidden rounded-[10px] shadow-[0px_2px_4px_rgba(0,0,0,0.08)] relative ${padding} card-hover`
   let quoteClasses = ""
   let nameClasses = ""
   let companyClasses = ""
@@ -81,7 +81,7 @@ const TestimonialCard = ({ quote, name, company, avatar, type }: Testimonial) =>
 
   if (type === "large-teal") {
     cardClasses += " bg-primary"
-    quoteClasses += " text-primary-foreground text-2xl font-medium leading-8"
+    quoteClasses += " text-primary-foreground text-2xl font-medium leading-8 tracking-tight"
     nameClasses += " text-primary-foreground text-base font-normal leading-6"
     companyClasses += " text-primary-foreground/60 text-base font-normal leading-6"
     cardHeight = "h-[502px]"
@@ -92,8 +92,8 @@ const TestimonialCard = ({ quote, name, company, avatar, type }: Testimonial) =>
       />
     )
   } else if (type === "large-light") {
-    cardClasses += " bg-[rgba(231,236,235,0.12)]"
-    quoteClasses += " text-foreground text-2xl font-medium leading-8"
+    cardClasses += " glass-strong"
+    quoteClasses += " text-foreground text-2xl font-medium leading-8 tracking-tight"
     nameClasses += " text-foreground text-base font-normal leading-6"
     companyClasses += " text-muted-foreground text-base font-normal leading-6"
     cardHeight = "h-[502px]"
@@ -104,7 +104,7 @@ const TestimonialCard = ({ quote, name, company, avatar, type }: Testimonial) =>
       />
     )
   } else {
-    cardClasses += " bg-card outline outline-1 outline-border outline-offset-[-1px]"
+    cardClasses += " glass"
     quoteClasses += " text-foreground/80 text-[17px] font-normal leading-6"
     nameClasses += " text-foreground text-sm font-normal leading-[22px]"
     companyClasses += " text-muted-foreground text-sm font-normal leading-[22px]"
@@ -141,7 +141,7 @@ export function TestimonialGridSection() {
     <section id="testimonials-section" className="w-full px-5 overflow-hidden flex flex-col justify-start py-6 md:py-8 lg:py-14">
       <div className="self-stretch py-6 md:py-8 lg:py-14 flex flex-col justify-center items-center gap-2">
         <div className="flex flex-col justify-start items-center gap-4">
-          <h2 className="text-center text-foreground text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight md:leading-tight lg:leading-[40px]">
+          <h2 className="text-center text-foreground text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight md:leading-tight lg:leading-[40px] heading-tight">
             Loved by supply chain teams
           </h2>
           <p className="self-stretch text-center text-muted-foreground text-sm md:text-sm lg:text-base font-medium leading-[18.20px] md:leading-relaxed lg:leading-relaxed">
